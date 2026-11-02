@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">JR Marketly</string>
+    <string name="title_activity_main">JR Marketly</string>
+    <string name="package_name">com.jrmarketly.app</string>
+    <string name="custom_url_scheme">com.jrmarketly.app</string>
+</resources>

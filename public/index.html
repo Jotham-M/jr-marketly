@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f7f6f2">
+    <meta name="description" content="Discover independent makers, thoughtfully made goods, and everyday favorites at JR Marketly.">
+    <link rel="manifest" href="/manifest.webmanifest">
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://images.unsplash.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+    <title>JR Marketly — Good things, found here.</title>
+  </head>
+  <body>
+    <div class="announcement">Good things from good people <span>— find your new favorite maker.</span></div>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="JR Marketly home"><span class="brand-mark">JR</span>JR Marketly<span class="brand-period">.</span></a>
+      <form class="search-bar" id="search-form" role="search">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.2 4.2"/></svg>
+        <input id="search-input" type="search" placeholder="Search for something lovely..." aria-label="Search products">
+        <button type="submit">Search</button>
+      </form>
+      <nav class="header-actions" aria-label="Main navigation">
+        <button class="text-button" id="sell-link">Sell on JR Marketly</button>
+        <button class="icon-button account-button" id="account-button" aria-label="Account">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c.7-3.2 3.2-5 7-5s6.3 1.8 7 5"/></svg><span class="account-label">Sign in</span>
+        </button>
+        <button class="icon-button cart-button" id="cart-button" aria-label="Shopping bag">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l1.2 12H3.8L5 8Z"/><path d="M9 9V6a3 3 0 0 1 6 0v3"/></svg><span>Bag</span><span class="cart-count" id="cart-count">0</span>
+        </button>
+      </nav>
+    </header>
+    <nav class="category-nav" aria-label="Shop categories">
+      <button class="category-link active" data-category="All">Discover</button>
+      <button class="category-link" data-category="Home">Home & living</button>
+      <button class="category-link" data-category="Fashion">Clothing</button>
+      <button class="category-link" data-category="Beauty">Bath & beauty</button>
+      <button class="category-link" data-category="Accessories">Jewelry & accessories</button>
+      <button class="category-link" data-category="Art">Art & prints</button>
+      <button class="category-link" data-category="Food">Food & drink</button>
+    </nav>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <span class="eyebrow"><span class="sparkle">✳</span> THE GOOD KIND OF DIFFERENT</span>
+          <h1>Good things,<br>found <span>here.</span></h1>
+          <p>Meet the independent makers behind the things you’ll love having around.</p>
+          <a class="button button-dark" href="#shop">Find your new favorite <span aria-hidden="true">↗</span></a>
+          <div class="hero-note"><span class="avatar-stack"><i>✳</i><i>♡</i><i>↗</i></span><span>A little more meaning in the things we find</span></div>
+        </div>
+        <div class="hero-art" role="img" aria-label="Artful handmade home decor and ceramics">
+          <div class="hero-image"></div>
+          <div class="hero-sticker"><span>made with</span><strong>♡</strong><span>meaning</span></div>
+          <div class="hero-caption"><span class="caption-dot"></span> A marketplace for the makers</div>
+        </div>
+      </section>
+
+      <section class="trust-strip" aria-label="Why shop with Marketly">
+        <div><span class="trust-icon">✳</span><span><strong>One-of-a-kind finds</strong><small>Little things with a story</small></span></div>
+        <div><span class="trust-icon">♡</span><span><strong>People over products</strong><small>Shop small, feel good</small></span></div>
+        <div><span class="trust-icon">↗</span><span><strong>Made to be kept</strong><small>Thoughtful by nature</small></span></div>
+      </section>
+
+      <section class="shop-section" id="shop">
+        <div class="section-heading">
+          <div><span class="eyebrow">A GOOD PLACE TO START</span><h2>Today’s little discoveries <span>✳</span></h2></div>
+          <label class="sort-control">Sort by
+            <select id="sort-select" aria-label="Sort products">
+              <option value="featured">Featured</option><option value="price-low">Price: low to high</option><option value="price-high">Price: high to low</option>
+            </select>
+          </label>
+        </div>
+        <div class="filter-row" id="filter-row">
+          <button class="filter-chip selected" data-category="All">Everything</button>
+          <button class="filter-chip" data-category="Home">Home & living</button>
+          <button class="filter-chip" data-category="Fashion">Clothing</button>
+          <button class="filter-chip" data-category="Beauty">Bath & beauty</button>
+          <button class="filter-chip" data-category="Accessories">Jewelry</button>
+          <button class="filter-chip" data-category="Art">Art & prints</button>
+          <button class="filter-chip" data-category="Food">Food & drink</button>
+        </div>
+        <div class="product-grid" id="product-grid" aria-live="polite"></div>
+        <p class="empty-state" id="empty-state" hidden>No little discoveries found. Try another search or category.</p>
+        <div class="load-more-wrap"><button class="button button-outline" id="load-more">Explore all the good stuff <span aria-hidden="true">↓</span></button></div>
+      </section>
+
+      <section class="maker-banner">
+        <div class="maker-art" aria-hidden="true"><div class="maker-sun"></div><div class="maker-vase"></div><div class="maker-flower">✳</div></div>
+        <div class="maker-copy"><span class="eyebrow">YOUR LITTLE CORNER OF THE INTERNET</span><h2>Made something<br><span>people should see?</span></h2><p>Your next favorite customer is out there. Open your shop, meet your people, and grow at your own pace.</p><button class="button button-dark" id="maker-cta">Make yourself at home <span aria-hidden="true">↗</span></button></div>
+        <span class="maker-scribble" aria-hidden="true">✳</span>
+      </section>
+
+      <section class="newsletter">
+        <span class="eyebrow">NOT YOUR AVERAGE INBOX</span><h2>A good thing, now and then.</h2><p>New finds, kind makers, and little reasons to treat yourself.</p>
+        <form id="newsletter-form"><label class="sr-only" for="newsletter-email">Your email address</label><input id="newsletter-email" type="email" placeholder="Your email address" required><button type="submit">Count me in <span aria-hidden="true">→</span></button></form>
+        <small>Newsletter signup is a preview and isn’t connected to an email service yet.</small>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <a class="brand" href="/"><span class="brand-mark">JR</span>JR Marketly<span class="brand-period">.</span></a>
+      <p class="footer-tagline">A little more meaning in the things we find.</p>
+      <p class="footer-credit">Developed by Jotham Rwatirera <span>@</span> 2026</p>
+    </footer>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <div class="overlay" id="overlay" hidden></div>
+    <aside class="cart-drawer" id="cart-drawer" aria-label="Your shopping bag" aria-hidden="true">
+      <div class="drawer-header"><div><span class="eyebrow">A FEW GOOD THINGS</span><h2>Your bag <span id="drawer-count"></span></h2></div><button class="close-button" data-close aria-label="Close bag">×</button></div>
+      <div class="cart-items" id="cart-items"></div>
+      <div class="cart-empty" id="cart-empty"><span>♡</span><strong>Your bag is taking a little break.</strong><p>Go find something lovely to bring home.</p><button class="button button-outline" data-close>Keep looking</button></div>
+      <div class="cart-footer" id="cart-footer"><div class="subtotal"><span>Subtotal</span><strong id="cart-subtotal">$0.00</strong></div><small>Delivery fees and taxes aren’t calculated in this marketplace preview.</small><button class="button button-dark checkout-button" id="checkout-button">Checkout · pay on delivery <span aria-hidden="true">→</span></button><div class="secure-note">♡ &nbsp;No payment details are collected or stored</div></div>
+    </aside>
+    <dialog class="modal" id="account-modal" aria-labelledby="account-title">
+      <button class="close-button modal-close" data-close aria-label="Close dialog">×</button>
+      <div class="modal-content" id="account-content"></div>
+    </dialog>
+    <dialog class="modal" id="form-modal" aria-labelledby="form-title">
+      <button class="close-button modal-close" data-close aria-label="Close dialog">×</button>
+      <div class="modal-content" id="form-content"></div>
+    </dialog>
+    <script src="/runtime-config.js"></script>
+    <script src="/app.js" defer></script>
+  </body>
+</html>

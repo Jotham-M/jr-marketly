@@ -1,0 +1,12 @@
+{
+  "appId": "com.jrmarketly.app",
+  "appName": "JR Marketly",
+  "webDir": "public",
+  "android": {
+    "backgroundColor": "#f7f6f2"
+  },
+  "ios": {
+    "contentInset": "automatic",
+    "backgroundColor": "#f7f6f2"
+  }
+}
