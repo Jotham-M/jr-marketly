@@ -26,9 +26,17 @@ async function init() {
       stock INTEGER DEFAULT 100,
       user_id INTEGER REFERENCES users(id),
       seller_id INTEGER REFERENCES users(id),
+      vendor_id INTEGER REFERENCES users(id),
       created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     );
   `);
+
+  // Add missing columns if table already exists (for your current DB)
+  await pool.query(`ALTER TABLE products ADD COLUMN IF NOT EXISTS vendor_id INTEGER REFERENCES users(id);`);
+  await pool.query(`ALTER TABLE products ADD COLUMN IF NOT EXISTS seller_id INTEGER REFERENCES users(id);`);
+  await pool.query(`ALTER TABLE products ADD COLUMN IF NOT EXISTS user_id INTEGER REFERENCES users(id);`);
+  await pool.query(`ALTER TABLE products ADD COLUMN IF NOT EXISTS image_url TEXT;`);
+  await pool.query(`ALTER TABLE products ADD COLUMN IF NOT EXISTS image TEXT;`);
 
   await pool.query(`
     CREATE TABLE IF NOT EXISTS orders (
@@ -53,7 +61,6 @@ async function init() {
 
   console.log('Tables created successfully!');
   
-  // Insert sample products if empty
   const { rows } = await pool.query('SELECT COUNT(*) FROM products');
   if (parseInt(rows[0].count) === 0) {
     await pool.query(`
