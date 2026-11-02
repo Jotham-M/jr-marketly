@@ -4,6 +4,7 @@
   "description": "JR Marketly multi-vendor marketplace with an installable web, Android, and iOS app",
   "main": "server.js",
   "scripts": {
+    "db:schema": "node init-db.js",
     "start": "node server.js",
     "dev": "node --watch server.js",
     "mobile:sync": "cap sync",
